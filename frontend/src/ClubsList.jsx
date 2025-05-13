@@ -5,7 +5,7 @@ const ClubsList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/clubs')
+    fetch('https://localhost:8000/api/clubs')
       .then((response) => response.json())
       .then((data) => {
         setClubs(data);
