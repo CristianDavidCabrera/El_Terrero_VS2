@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Team{% endblock %}
+
+{% block body %}
+    <h1>Create new Team</h1>
+
+    {{ include('team/_form.html.twig') }}
+
+ {% if is_granted('ROLE_ADMIN') %}
+         <button class="login-button" onclick="window.location.href='{{ path('dashboard_admin') }}'" >Back Dashboard</button>
+           <a href="{{ path('app_team_index') }}">back to list</a>
+    {% elseif is_granted('ROLE_USER') %}
+        <button class="login-button" onclick="window.location.href='{{ path('dashboard_user') }}'" >Back Dashboard</button>
+        <a href="{{path('app_team_showYourTeams', {'clubId':app.user.club.id})}}">Back teams</a>
+    {% endif %}
+  
+{% endblock %}

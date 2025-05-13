@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Game Details{% endblock %}
+
+{% block body %}
+<div class="bg-gray-800 text-white p-4 shadow">
+    <h1 class="text-2xl font-bold text-center my-4 dark:text-white">Detalles de la Luchada</h1>
+</div>
+
+<div class="flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6 dark:bg-gray-800 dark:border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Información de la Luchada</h2>
+
+        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+            <li><strong>ID:</strong> {{ game.id }}</li>
+            <li><strong>Fecha:</strong> {{ game.matchDay ? game.matchDay|date('Y-m-d') : 'No especificada' }}</li>
+            <li><strong>¿Ganador?:</strong> {{ game.isWinner ? 'Sí' : 'No' }}</li>
+            <li><strong>En juego:</strong> {{ game.onPlay ? 'Sí' : 'No' }}</li>
+            <li><strong>Equipo Visitante:</strong> {{ game.visitorTeam }}</li>
+            <li><strong>Equipo Local:</strong> {{ game.localTeam }}</li>
+        </ul>
+
+        <div class="mt-6 flex flex-col space-y-2">
+            <a href="{{ path('app_game_edit', {'id': game.id}) }}" 
+               class="bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                Editar Luchada
+            </a>
+            <a href="{{ path('app_game_index') }}" 
+               class="bg-blue-500 text-white hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-900">
+                Volver a la Lista
+            </a>
+            {{ include('game/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

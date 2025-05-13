@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Score{% endblock %}
+
+{% block body %}
+<div class="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Detalles del Puntaje</h1>
+        <div class="space-y-4">
+            <div class="flex justify-between">
+                <span class="font-medium text-gray-700 dark:text-gray-400">Id:</span>
+                <span class="text-gray-900 dark:text-white">{{ score.id }}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="font-medium text-gray-700 dark:text-gray-400">Puntos:</span>
+                <span class="text-gray-900 dark:text-white">{{ score.points }}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="font-medium text-gray-700 dark:text-gray-400">Es local:</span>
+                <span class="text-gray-900 dark:text-white">{{ score.isLocal ? 'Sí' : 'No' }}</span>
+            </div>
+        </div>
+        <div class="mt-6 flex justify-between">
+            <a href="{{ path('app_score_index') }}" 
+               class="bg-blue-500 text-white hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Volver a la lista
+            </a>
+            <a href="{{ path('app_score_edit', {'id': score.id}) }}" 
+               class="bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                Editar
+            </a>
+        </div>
+        <div class="mt-4">
+            {{ include('score/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

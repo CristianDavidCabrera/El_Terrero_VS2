@@ -1,0 +1,38 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}New Club{% endblock %}
+
+{% block body %}
+    <h1>Create new Club</h1>
+
+    {{ include('club/_form.html.twig') }}
+
+    <a href="{{ path('app_club_index') }}">back to list</a>
+{% endblock %}
+ #}
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}New Club{% endblock %}
+
+{% block body %}
+
+
+<div class="bg-gray-800 text-white p-4 shadow"> 
+    <h1 class="text-2xl font-bold text-center my-4  dark:text-white ">Create new Club</h1>
+</div>
+<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md bg-gray-800">
+            {{ include('club/_form.html.twig', { 'button_label': 'Create Club' }) }}
+        
+        <a href="{{ path('app_club_index') }}" class="mt-4 block text-blue-500 hover:underline ">
+            Back to list
+        </a>
+     
+    </div>
+</div>
+{% endblock %}
