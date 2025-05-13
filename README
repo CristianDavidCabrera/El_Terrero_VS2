@@ -1,0 +1,9 @@
+feat: integración completa frontend-backend con configuración de React, Tailwind y pruebas CORS exitosas
+
+- Se integró el frontend (Vite + React + Tailwind) con el backend en Symfony.
+- Configurada la comunicación entre ambos mediante HTTPS en entorno local.
+- Añadido soporte CORS en el backend para permitir peticiones desde el frontend.
+- Instalados y configurados plugins de Vite: mkcert, react y Tailwind CSS.
+- Se generaron certificados locales para permitir conexión segura.
+- Probadas rutas API como `/api/clubs` desde el frontend con éxito.
+- Añadido .gitignore para evitar subir certificados y archivos sensibles.
